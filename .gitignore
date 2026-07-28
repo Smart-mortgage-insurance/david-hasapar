@@ -1,0 +1,8 @@
+# קבצים רגישים – לא להעלות
+yemot-credentials.local.txt
+js/config.local.js
+*.local.txt
+*.secret
+
+# קוד ה-Worker (נפרס דרך Cloudflare, מכיל סוד – לא ב-repo הציבורי)
+worker/

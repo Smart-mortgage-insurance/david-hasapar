@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>דוד הספר – ניהול</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="logo">🔧</div>
+      <div>
+        <h1>ניהול · דוד הספר</h1>
+        <p>שליטה על תורים, ימים ושעות</p>
+      </div>
+    </div>
+
+    <!-- מסך כניסה -->
+    <div class="card" id="loginCard">
+      <h2>כניסת ניהול</h2>
+      <label for="pw">סיסמה</label>
+      <input type="password" id="pw" placeholder="הכנס סיסמה" autocomplete="current-password">
+      <div class="msg" id="loginMsg"></div>
+      <button class="btn" id="loginBtn">כניסה</button>
+      <p class="foot" style="margin-top:14px"><a href="index.html">חזרה לאתר הלקוחות</a></p>
+    </div>
+
+    <!-- לוח הניהול -->
+    <div id="panel" class="hidden">
+      <div class="tab-links">
+        <button data-tab="bookings" class="active">📅 תורים</button>
+        <button data-tab="closures">🚫 סגירות</button>
+        <button data-tab="settings">⚙️ הגדרות</button>
+      </div>
+
+      <!-- טאב תורים -->
+      <div class="card tab" id="tab-bookings">
+        <h2>תורים לפי יום</h2>
+        <div class="days" id="adminDays"></div>
+        <div id="adminBookings" style="margin-top:14px"></div>
+      </div>
+
+      <!-- טאב סגירות -->
+      <div class="card tab hidden" id="tab-closures">
+        <h2>סגירת ימים ושעות <span class="sub">(למשל אם סוגרים מוקדם)</span></h2>
+
+        <label>בחר תאריך</label>
+        <input type="date" id="closeDate">
+
+        <div class="row2" style="margin-top:12px">
+          <button class="btn danger" id="closeDayBtn">סגור יום שלם</button>
+        </div>
+
+        <label style="margin-top:16px">או סגירה מוקדמת – חסום החל משעה:</label>
+        <div class="row2">
+          <input type="time" id="closeFrom" step="600" value="17:00">
+          <button class="btn secondary" id="closeEarlyBtn">סגור מהשעה הזו</button>
+        </div>
+
+        <label style="margin-top:16px">או חסימת טווח שעות (הפסקה):</label>
+        <div class="row2">
+          <input type="time" id="blockFrom" step="600" value="13:00">
+          <input type="time" id="blockTo" step="600" value="14:00">
+        </div>
+        <button class="btn secondary" id="blockRangeBtn" style="margin-top:8px">חסום טווח</button>
+
+        <div class="msg" id="closeMsg"></div>
+
+        <h2 style="margin-top:22px">סגירות פעילות</h2>
+        <div id="blocksList"><div class="empty-note">אין סגירות.</div></div>
+      </div>
+
+      <!-- טאב הגדרות -->
+      <div class="card tab hidden" id="tab-settings">
+        <h2>שעות עבודה קבועות</h2>
+        <label>ימי עבודה</label>
+        <div class="chips" id="dayChips"></div>
+
+        <div class="row2" style="margin-top:14px">
+          <div>
+            <label>שעת פתיחה</label>
+            <input type="time" id="startTime" step="600">
+          </div>
+          <div>
+            <label>שעת סגירה</label>
+            <input type="time" id="endTime" step="600">
+          </div>
+        </div>
+
+        <label style="margin-top:14px">שם העסק</label>
+        <input type="text" id="bizNameIn">
+
+        <label style="margin-top:14px">כמה ימים קדימה מותר לקבוע</label>
+        <input type="text" id="bookAhead" inputmode="numeric">
+
+        <button class="btn" id="saveSettingsBtn" style="margin-top:16px">שמור הגדרות</button>
+
+        <h2 style="margin-top:26px">שינוי סיסמת ניהול</h2>
+        <label>סיסמה חדשה</label>
+        <input type="password" id="newPw" placeholder="סיסמה חדשה">
+        <button class="btn secondary" id="savePwBtn" style="margin-top:10px">עדכן סיסמה</button>
+
+        <div class="msg" id="settingsMsg"></div>
+      </div>
+
+      <p class="foot"><a href="index.html">חזרה לאתר הלקוחות</a></p>
+    </div>
+
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
