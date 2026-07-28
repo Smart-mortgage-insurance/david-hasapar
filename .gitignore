@@ -6,3 +6,6 @@ js/config.local.js
 
 # קוד ה-Worker (נפרס דרך Cloudflare, מכיל סוד – לא ב-repo הציבורי)
 worker/
+
+# קובץ תצוגה מקדימה מקומי (נתוני דמה – לא באתר החי)
+preview.html

@@ -9,10 +9,12 @@
   function showMsg(box, text, type) { box.textContent = text; box.className = 'msg show ' + type; }
 
   /* ---------- כניסה ---------- */
+  const PW_KEY = 'davidAdminPw';   // התחברות נשמרת (לאפליקציה של דוד)
+
   async function login() {
     const pw = el('pw').value;
     if (await Store.checkPassword(pw)) {
-      sessionStorage.setItem('davidAdmin', '1');
+      try { localStorage.setItem(PW_KEY, pw); } catch (e) {}
       openPanel();
     } else {
       showMsg(el('loginMsg'), 'סיסמה שגויה', 'err');
@@ -202,7 +204,21 @@
     showMsg(el('settingsMsg'), '✅ הסיסמה עודכנה', 'ok');
   });
 
-  /* ---------- כניסה אוטומטית אם כבר מחובר ---------- */
-  if (sessionStorage.getItem('davidAdmin') === '1') openPanel();
+  /* ---------- התנתקות ---------- */
+  function logout() {
+    try { localStorage.removeItem(PW_KEY); } catch (e) {}
+    location.reload();
+  }
+  const logoutBtn = el('logoutBtn');
+  if (logoutBtn) logoutBtn.addEventListener('click', logout);
+
+  /* ---------- כניסה אוטומטית אם כבר מחובר (נשמר במכשיר) ---------- */
+  (async function autoLogin() {
+    let saved = null;
+    try { saved = localStorage.getItem(PW_KEY); } catch (e) {}
+    if (!saved) return;
+    if (await Store.checkPassword(saved)) openPanel();
+    else { try { localStorage.removeItem(PW_KEY); } catch (e) {} }
+  })();
 
 })();
