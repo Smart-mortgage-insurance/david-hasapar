@@ -1,24 +1,28 @@
-/* דוד הספר – עיצוב משותף */
+/* דוד הספר – עיצוב משותף (ערכת בהיר: זהב-לבן + רקע מספרה) */
 :root {
-  --bg: #0f1720;
-  --card: #182430;
-  --card-2: #1f2e3d;
-  --line: #2a3b4d;
-  --text: #eaf1f8;
-  --muted: #9fb2c4;
-  --accent: #d9a441;      /* זהב-ספר */
-  --accent-2: #b8862b;
-  --ok: #3fb27f;
-  --danger: #e05a5a;
+  --bg: #f7f1e6;          /* קרם בהיר */
+  --card: #ffffff;        /* לבן */
+  --card-2: #faf5ec;      /* קרם בהיר מאוד */
+  --line: #e7dcc6;        /* גבול חם */
+  --text: #2a3742;        /* פחם-נייבי לקריאות נעימה */
+  --muted: #8a7c66;       /* חום-אפור עדין */
+  --accent: #c8992e;      /* זהב עמוק (קונטרסט טוב על לבן) */
+  --accent-2: #a9781f;
+  --ok: #2f9e6b;
+  --danger: #d1493f;
   --radius: 14px;
-  --shadow: 0 8px 30px rgba(0,0,0,.35);
+  --shadow: 0 10px 30px rgba(70,52,20,.10);
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
   font-family: "Segoe UI", "Rubik", Arial, sans-serif;
-  background: linear-gradient(160deg, #0c131b, #101c27 60%, #0c131b);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(247,241,230,0.60), rgba(247,241,230,0.60)),
+    url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMTgwIDE4MCI+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjg4NjJiIiBzdHJva2Utb3BhY2l0eT0iMC41IiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KCiAgICA8IS0tINee16HXpNeo15nXmdedICjXqdee15DXnC3Xotec15nXldefKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwLDIyKSByb3RhdGUoLTE4KSI+CiAgICAgIDxjaXJjbGUgY3g9IjEwIiBjeT0iNDAiIHI9IjYiLz4KICAgICAgPGNpcmNsZSBjeD0iMjgiIGN5PSI0MCIgcj0iNiIvPgogICAgICA8bGluZSB4MT0iMTMiIHkxPSIzNSIgeDI9IjQwIiB5Mj0iMiIvPgogICAgICA8bGluZSB4MT0iMjUiIHkxPSIzNSIgeDI9Ii0yIiB5Mj0iMiIvPgogICAgICA8Y2lyY2xlIGN4PSIxOSIgY3k9IjIyIiByPSIxLjYiIGZpbGw9IiNiODg2MmIiIHN0cm9rZT0ibm9uZSIvPgogICAgPC9nPgoKICAgIDwhLS0g16LXnteV15Mg16HXpNeoICjXmdee15nXny3Xotec15nXldefKSAtLT4KICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMiwyMCkgcm90YXRlKDEyKSI+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxNSIgaGVpZ2h0PSI0MiIgcng9IjcuNSIvPgogICAgICA8bGluZSB4MT0iMiIgeTE9IjEzIiB4Mj0iMTMiIHkyPSIzIi8+CiAgICAgIDxsaW5lIHgxPSIyIiB5MT0iMjciIHgyPSIxMyIgeTI9IjE3Ii8+CiAgICAgIDxsaW5lIHgxPSIyIiB5MT0iNDEiIHgyPSIxMyIgeTI9IjMxIi8+CiAgICA8L2c+CgogICAgPCEtLSDXnteh16jXpyAo16nXnteQ15wt16rXl9eq15XXnykgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNiwxMTgpIHJvdGF0ZSgtOCkiPgogICAgICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNTQiIGhlaWdodD0iOSIgcng9IjMiLz4KICAgICAgPGxpbmUgeDE9IjYiIHkxPSI5IiB4Mj0iNiIgeTI9IjIyIi8+CiAgICAgIDxsaW5lIHgxPSIxNCIgeTE9IjkiIHgyPSIxNCIgeTI9IjIyIi8+CiAgICAgIDxsaW5lIHgxPSIyMiIgeTE9IjkiIHgyPSIyMiIgeTI9IjIyIi8+CiAgICAgIDxsaW5lIHgxPSIzMCIgeTE9IjkiIHgyPSIzMCIgeTI9IjIyIi8+CiAgICAgIDxsaW5lIHgxPSIzOCIgeTE9IjkiIHgyPSIzOCIgeTI9IjIyIi8+CiAgICAgIDxsaW5lIHgxPSI0NiIgeTE9IjkiIHgyPSI0NiIgeTI9IjIyIi8+CiAgICA8L2c+CgogICAgPCEtLSDXqtei16gg157Xqten16TXnCAo15nXnteZ158t16rXl9eq15XXnykgLS0+CiAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTIsMTI0KSByb3RhdGUoLTI0KSI+CiAgICAgIDxwYXRoIGQ9Ik0wLDI2IEwyNiwxOCIvPgogICAgICA8cGF0aCBkPSJNMjYsMTggTDU4LDggUTY0LDcgNjIsMTMgTDYwLDE4IFE0MCwyNCAzMCwyNCBaIi8+CiAgICA8L2c+CgogIDwvZz4KPC9zdmc+Cg==");
+  background-size: auto, 180px 180px;
   color: var(--text);
   direction: rtl;
   min-height: 100vh;
@@ -37,9 +41,9 @@ body {
   width: 52px; height: 52px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, var(--accent), var(--accent-2));
   display: grid; place-items: center; font-size: 26px;
-  box-shadow: var(--shadow); flex: none;
+  box-shadow: var(--shadow); flex: none; color: #fff;
 }
-.topbar h1 { font-size: 22px; margin: 0; }
+.topbar h1 { font-size: 22px; margin: 0; color: var(--text); }
 .topbar p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
 
 /* כרטיסים */
@@ -51,7 +55,7 @@ body {
   margin: 14px 0;
   box-shadow: var(--shadow);
 }
-.card h2 { margin: 0 0 12px; font-size: 17px; }
+.card h2 { margin: 0 0 12px; font-size: 17px; color: var(--text); }
 .card h2 .sub { color: var(--muted); font-weight: normal; font-size: 13px; }
 
 /* בחירת יום */
@@ -62,12 +66,12 @@ body {
   border-radius: 12px; padding: 12px 8px; cursor: pointer;
   transition: .15s; user-select: none;
 }
-.day:hover { border-color: var(--accent-2); }
-.day.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.day:hover { border-color: var(--accent); }
+.day.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
 .day .dname { font-size: 15px; font-weight: 700; }
 .day .ddate { font-size: 12px; opacity: .8; margin-top: 2px; }
 .day .dfree { font-size: 11px; margin-top: 6px; opacity: .85; }
-.day.active .dfree { color: #3a2c08; }
+.day.active .dfree { color: #fdf3dc; }
 
 /* שעות */
 .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; }
@@ -78,39 +82,40 @@ body {
   transition: .12s;
 }
 .slot:hover { border-color: var(--accent); transform: translateY(-1px); }
-.slot.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.slot.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
 .empty-note { color: var(--muted); text-align: center; padding: 20px; }
 
 /* טופס */
 label { display: block; margin: 12px 0 6px; font-size: 14px; color: var(--muted); }
 input[type=text], input[type=tel], input[type=password], input[type=time], input[type=date], select {
   width: 100%; padding: 13px 14px; font-size: 16px;
-  background: var(--card-2); border: 1px solid var(--line);
+  background: #fff; border: 1px solid var(--line);
   border-radius: 10px; color: var(--text); outline: none;
 }
-input:focus, select:focus { border-color: var(--accent); }
+input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(200,153,46,.15); }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 15px; font-size: 17px; font-weight: 700;
-  background: var(--accent); color: #1a1205; border: none;
+  background: var(--accent); color: #fff; border: none;
   border-radius: 12px; cursor: pointer; transition: .15s; margin-top: 8px;
+  box-shadow: 0 4px 14px rgba(200,153,46,.28);
 }
 .btn:hover { background: var(--accent-2); }
-.btn:disabled { opacity: .45; cursor: not-allowed; }
-.btn.secondary { background: var(--card-2); color: var(--text); border: 1px solid var(--line); }
-.btn.danger { background: var(--danger); color: #fff; }
+.btn:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.btn.secondary { background: var(--card-2); color: var(--text); border: 1px solid var(--line); box-shadow: none; }
+.btn.danger { background: var(--danger); color: #fff; box-shadow: none; }
 .btn.small { width: auto; padding: 8px 14px; font-size: 14px; margin: 0; }
 
 /* הודעות */
 .msg { padding: 13px 15px; border-radius: 10px; margin: 12px 0; font-size: 15px; display: none; }
 .msg.show { display: block; }
-.msg.ok { background: rgba(63,178,127,.15); border: 1px solid var(--ok); color: #b8f0d5; }
-.msg.err { background: rgba(224,90,90,.15); border: 1px solid var(--danger); color: #ffd0d0; }
+.msg.ok { background: rgba(47,158,107,.12); border: 1px solid var(--ok); color: #1c6b45; }
+.msg.err { background: rgba(209,73,63,.10); border: 1px solid var(--danger); color: #9e2b23; }
 
 /* בחירה נוכחית */
 .pick-summary { color: var(--muted); font-size: 14px; margin: 6px 0 0; }
-.pick-summary b { color: var(--accent); }
+.pick-summary b { color: var(--accent-2); }
 
 /* טבלת ניהול */
 .booking-row {
@@ -118,32 +123,32 @@ input:focus, select:focus { border-color: var(--accent); }
   padding: 12px; border: 1px solid var(--line); border-radius: 10px;
   background: var(--card-2); margin-bottom: 8px;
 }
-.booking-row .time { font-size: 17px; font-weight: 700; color: var(--accent); min-width: 56px; font-variant-numeric: tabular-nums; }
+.booking-row .time { font-size: 17px; font-weight: 700; color: var(--accent-2); min-width: 56px; font-variant-numeric: tabular-nums; }
 .booking-row .info { flex: 1; }
 .booking-row .info .nm { font-weight: 600; }
 .booking-row .info .ph { color: var(--muted); font-size: 13px; direction: ltr; text-align: right; }
-.booking-row .src { font-size: 11px; padding: 3px 8px; border-radius: 20px; background: var(--line); color: var(--muted); }
-.booking-row .src.phone { background: rgba(217,164,65,.2); color: var(--accent); }
+.booking-row .src { font-size: 11px; padding: 3px 8px; border-radius: 20px; background: var(--line); color: #6f6350; }
+.booking-row .src.phone { background: rgba(200,153,46,.18); color: var(--accent-2); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
   padding: 8px 12px; border-radius: 20px; background: var(--card-2);
   border: 1px solid var(--line); font-size: 13px; cursor: pointer;
 }
-.chip.on { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
 
 .row2 { display: flex; gap: 10px; }
 .row2 > * { flex: 1; }
 
 .foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; }
-.foot a { color: var(--accent); }
+.foot a { color: var(--accent-2); }
 
 .tab-links { display: flex; gap: 8px; margin-bottom: 14px; }
 .tab-links button {
   flex: 1; padding: 11px; border-radius: 10px; border: 1px solid var(--line);
-  background: var(--card-2); color: var(--text); cursor: pointer; font-size: 14px;
+  background: var(--card); color: var(--text); cursor: pointer; font-size: 14px;
 }
-.tab-links button.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.tab-links button.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
 
 .hidden { display: none !important; }
 .spinner { text-align: center; padding: 30px; color: var(--muted); }
