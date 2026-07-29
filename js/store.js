@@ -11,7 +11,7 @@ const Store = (function () {
 
   const WORKER = (typeof window !== 'undefined' && window.DAVID_WORKER_URL) || '';
   const SLOT_MINUTES = 10;
-  const DAY_NAMES = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
+  const DAY_NAMES = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'מוצ"ש'];
 
   /* ---- עזרי זמן ---- */
   function toMinutes(hhmm) { const [h, m] = hhmm.split(':').map(Number); return h * 60 + m; }
