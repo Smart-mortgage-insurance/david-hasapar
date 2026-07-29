@@ -163,32 +163,50 @@
   /* ---------- הגדרות ---------- */
   async function loadSettings() {
     const s = await Store.getSettings();
-    // צ'יפים של ימים
-    const box = el('dayChips');
+    const box = el('dayHours');
     box.innerHTML = '';
-    Store.DAY_NAMES.forEach((name, idx) => {
-      const chip = document.createElement('div');
-      chip.className = 'chip' + (s.workDays.includes(idx) ? ' on' : '');
-      chip.textContent = name;
-      chip.dataset.day = idx;
-      chip.addEventListener('click', () => chip.classList.toggle('on'));
-      box.appendChild(chip);
+    Store.DAY_NAMES.forEach((name, wd) => {
+      const on = s.workDays.includes(wd);
+      const dh = (s.dayHours && s.dayHours[wd]) || {};
+      const start = dh.start || s.startTime || '11:00';
+      const end   = dh.end   || s.endTime   || '19:00';
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:8px';
+      row.innerHTML =
+        '<label style="flex:0 0 96px;display:flex;align-items:center;gap:6px;font-size:14px;color:var(--text)">' +
+          '<input type="checkbox" data-day="' + wd + '"' + (on ? ' checked' : '') + ' style="width:auto"> ' + name + '</label>' +
+        '<input type="time" step="300" data-start="' + wd + '" value="' + start + '" style="flex:1">' +
+        '<span style="color:var(--muted)">–</span>' +
+        '<input type="time" step="300" data-end="' + wd + '" value="' + end + '" style="flex:1">';
+      box.appendChild(row);
     });
-    el('startTime').value = s.startTime;
-    el('endTime').value = s.endTime;
+    el('slotMin').value = String(s.slotMinutes || 10);
     el('bizNameIn').value = s.businessName || '';
     el('bookAhead').value = s.bookAheadDays || 21;
   }
 
   el('saveSettingsBtn').addEventListener('click', async () => {
-    const days = [...document.querySelectorAll('#dayChips .chip.on')].map(c => Number(c.dataset.day));
-    const start = el('startTime').value, end = el('endTime').value;
+    const days = [], dayHours = {};
+    let bad = '';
+    document.querySelectorAll('#dayHours input[type=checkbox]').forEach(chk => {
+      if (!chk.checked) return;
+      const wd = Number(chk.dataset.day);
+      const start = document.querySelector('#dayHours input[data-start="' + wd + '"]').value;
+      const end   = document.querySelector('#dayHours input[data-end="' + wd + '"]').value;
+      if (!start || !end || start >= end) { bad = bad || Store.DAY_NAMES[wd]; return; }
+      days.push(wd); dayHours[wd] = { start, end };
+    });
     if (!days.length) return showMsg(el('settingsMsg'), 'בחר לפחות יום עבודה אחד', 'err');
-    if (start >= end) return showMsg(el('settingsMsg'), 'שעת סגירה חייבת להיות אחרי הפתיחה', 'err');
+    if (bad) return showMsg(el('settingsMsg'), 'שעות לא תקינות ביום ' + bad + ' (הסיום חייב להיות אחרי ההתחלה)', 'err');
+    const slotMinutes = Math.max(5, Math.min(120, parseInt(el('slotMin').value) || 10));
+    const starts = days.map(d => dayHours[d].start).sort();
+    const ends   = days.map(d => dayHours[d].end).sort();
     await Store.saveSettings({
-      workDays: days.sort(),
-      startTime: start,
-      endTime: end,
+      workDays: days.sort((a,b) => a - b),
+      dayHours,
+      slotMinutes,
+      startTime: starts[0],
+      endTime: ends[ends.length - 1],
       businessName: el('bizNameIn').value.trim() || 'דוד הספר',
       bookAheadDays: Math.max(1, Math.min(90, parseInt(el('bookAhead').value) || 21))
     });

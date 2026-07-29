@@ -82,20 +82,20 @@
 
       <!-- טאב הגדרות -->
       <div class="card tab hidden" id="tab-settings">
-        <h2>שעות עבודה קבועות</h2>
-        <label>ימי עבודה</label>
-        <div class="chips" id="dayChips"></div>
+        <h2>ימים ושעות עבודה</h2>
+        <p class="pick-summary">סמנו ימי עבודה — ולכל יום אפשר לקבוע שעות משלו.</p>
+        <div id="dayHours"></div>
 
-        <div class="row2" style="margin-top:14px">
-          <div>
-            <label>שעת פתיחה</label>
-            <input type="time" id="startTime" step="600">
-          </div>
-          <div>
-            <label>שעת סגירה</label>
-            <input type="time" id="endTime" step="600">
-          </div>
-        </div>
+        <label style="margin-top:16px">משך כל תור</label>
+        <select id="slotMin">
+          <option value="5">5 דקות</option>
+          <option value="10">10 דקות</option>
+          <option value="15">15 דקות</option>
+          <option value="20">20 דקות</option>
+          <option value="30">30 דקות</option>
+          <option value="45">45 דקות</option>
+          <option value="60">שעה</option>
+        </select>
 
         <label style="margin-top:14px">שם העסק</label>
         <input type="text" id="bizNameIn">

@@ -18,6 +18,10 @@ const Store = (function () {
   function toHHMM(mins) { return String(Math.floor(mins/60)).padStart(2,'0')+':'+String(mins%60).padStart(2,'0'); }
   function ymd(d) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
   function weekdayOf(s) { const [y,m,d]=s.split('-').map(Number); return new Date(y,m-1,d).getDay(); }
+  function hoursFor(s, wd) {   // שעות ליום מסוים (עם נפילה חזרה לברירת מחדל גלובלית)
+    const dh = s.dayHours && s.dayHours[wd];
+    return { start: (dh && dh.start) || s.startTime, end: (dh && dh.end) || s.endTime };
+  }
 
   /* ---- קריאות ל-Worker ---- */
   async function api(path, body) {
@@ -51,11 +55,12 @@ const Store = (function () {
   function availableSlots(data, dateStr) {
     const s = data.settings;
     if (!s.workDays.includes(weekdayOf(dateStr))) return [];
-    const start = toMinutes(s.startTime), end = toMinutes(s.endTime);
+    const wh = hoursFor(s, weekdayOf(dateStr));
+    const start = toMinutes(wh.start), end = toMinutes(wh.end);
     const now = new Date(), isToday = dateStr===ymd(now), nowM = now.getHours()*60+now.getMinutes();
     const taken = new Set(data.bookings.filter(b=>b.date===dateStr).map(b=>b.time));
     const out = [];
-    for (let t=start; t+s.slotMinutes<=end; t+=s.slotMinutes) {
+    for (let t=start, step=s.slotMinutes||10; t+step<=end; t+=step) {
       const time = toHHMM(t);
       if (isToday && t<=nowM) continue;
       if (taken.has(time)) continue;
@@ -68,7 +73,8 @@ const Store = (function () {
     const s = data.settings;
     if (!s.workDays.includes(weekdayOf(dateStr))) return false;
     const t = toMinutes(time);
-    if (t < toMinutes(s.startTime) || t >= toMinutes(s.endTime)) return false;
+    const wh = hoursFor(s, weekdayOf(dateStr));
+    if (t < toMinutes(wh.start) || t >= toMinutes(wh.end)) return false;
     if (slotBlocked(data, dateStr, t)) return false;
     return !data.bookings.some(b => b.date===dateStr && b.time===time);
   }
