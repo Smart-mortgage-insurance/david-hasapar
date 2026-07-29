@@ -59,6 +59,8 @@
     try { s = await Store.getSettings(); }
     catch (e) { showPhoneFallback(); return; }
     el('bizName').textContent = s.businessName || 'דוד הספר';
+    const sm = s.slotMinutes || 10, subEl = el('subTitle');
+    if (subEl) subEl.textContent = 'קביעת תור אונליין · כל תור ' + (sm === 60 ? 'שעה' : sm + ' דקות');
 
     const days = await Store.upcomingOpenDays();
     if (!days.length) {
