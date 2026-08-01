@@ -218,6 +218,10 @@
     const npw = el('newPw').value.trim();
     if (npw.length < 3) return showMsg(el('settingsMsg'), 'סיסמה קצרה מדי (לפחות 3 תווים)', 'err');
     await Store.saveSettings({ adminPassword: npw });
+    // המכשיר שביצע את השינוי יישאר מחובר: מעדכנים את הסיסמה הפעילה (בזיכרון) ואת זו השמורה במכשיר.
+    // (מכשירים אחרים עדיין יצטרכו להזין את החדשה בכניסה הבאה — זה בלתי נמנע בסיסמה משותפת.)
+    await Store.checkPassword(npw);
+    try { localStorage.setItem(PW_KEY, npw); } catch (e) {}
     el('newPw').value = '';
     showMsg(el('settingsMsg'), '✅ הסיסמה עודכנה', 'ok');
   });
