@@ -183,6 +183,35 @@
     el('slotMin').value = String(s.slotMinutes || 10);
     el('bizNameIn').value = s.businessName || '';
     el('bookAhead').value = s.bookAheadDays || 21;
+
+    if (window.DavidTheme) { window.DavidTheme.apply(s.theme); renderThemes(s.theme); }
+  }
+
+  /* ---------- בורר ערכות עיצוב ---------- */
+  function renderThemes(current) {
+    const grid = el('themeGrid');
+    if (!grid || !window.DavidTheme) return;
+    const cur = window.DavidTheme.normalize(current);
+    grid.innerHTML = '';
+    window.DavidTheme.THEMES.forEach(t => {
+      const opt = document.createElement('div');
+      opt.className = 'theme-opt' + (t.id === cur ? ' on' : '');
+      opt.innerHTML =
+        '<div class="sw" style="background:' + t.bg + '"><div class="dot" style="background:' + t.accent + '"></div></div>' +
+        '<div class="nm">' + t.name + '</div>';
+      opt.addEventListener('click', async () => {
+        window.DavidTheme.apply(t.id);   // חל מיד על הפאנל
+        grid.querySelectorAll('.theme-opt').forEach(x => x.classList.remove('on'));
+        opt.classList.add('on');
+        try {
+          await Store.saveSettings({ theme: t.id });
+          showMsg(el('settingsMsg'), '✅ העיצוב עודכן — ' + t.name, 'ok');
+        } catch (e) {
+          showMsg(el('settingsMsg'), 'העיצוב לא נשמר, נסו שוב', 'err');
+        }
+      });
+      grid.appendChild(opt);
+    });
   }
 
   el('saveSettingsBtn').addEventListener('click', async () => {

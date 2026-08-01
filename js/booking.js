@@ -58,6 +58,7 @@
     let s;
     try { s = await Store.getSettings(); }
     catch (e) { showPhoneFallback(); return; }
+    if (window.DavidTheme) window.DavidTheme.apply(s.theme);
     el('bizName').textContent = s.businessName || 'דוד הספר';
     const sm = s.slotMinutes || 10, subEl = el('subTitle');
     if (subEl) subEl.textContent = 'קביעת תור אונליין · כל תור ' + (sm === 60 ? 'שעה' : sm + ' דקות');

@@ -1,6 +1,8 @@
 /* דוד הספר – עיצוב משותף */
 :root {
   --bg: #0f1720;
+  --bg1: #0c131b;         /* קצה גרדיאנט רקע */
+  --bg2: #101c27;
   --card: #182430;
   --card-2: #1f2e3d;
   --line: #2a3b4d;
@@ -8,17 +10,50 @@
   --muted: #9fb2c4;
   --accent: #d9a441;      /* זהב-ספר */
   --accent-2: #b8862b;
+  --on-accent: #1a1205;   /* צבע טקסט על רקע accent */
   --ok: #3fb27f;
   --danger: #e05a5a;
   --radius: 14px;
   --shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 
+/* ===== 8 ערכות עיצוב (המנהל בוחר בדף ההגדרות) ===== */
+:root[data-theme="2"] {  /* כחול ים */
+  --bg:#0c1826; --bg1:#0a1420; --bg2:#0e1e2e; --card:#132433; --card-2:#193042;
+  --line:#243d52; --text:#e7f2fb; --muted:#9db6cc; --accent:#38b6c9; --accent-2:#2a8fa0; --on-accent:#04191d;
+}
+:root[data-theme="3"] {  /* ירוק יער */
+  --bg:#0c1a15; --bg1:#0a1512; --bg2:#0e1f19; --card:#132a22; --card-2:#183527;
+  --line:#254a38; --text:#e8f6ee; --muted:#a0c2b0; --accent:#3fb27f; --accent-2:#2e8a61; --on-accent:#04160e;
+}
+:root[data-theme="4"] {  /* יין בורדו */
+  --bg:#1e0f13; --bg1:#1a0d10; --bg2:#241016; --card:#2c161c; --card-2:#371c24;
+  --line:#4d2933; --text:#fbeaee; --muted:#c9a4ac; --accent:#e0637a; --accent-2:#b8465c; --on-accent:#2a0810;
+}
+:root[data-theme="5"] {  /* סגול מלכותי */
+  --bg:#150e26; --bg1:#120c1e; --bg2:#1a1030; --card:#22193a; --card-2:#2b2047;
+  --line:#3d2f5e; --text:#efe9fb; --muted:#b3a4cc; --accent:#9b7be0; --accent-2:#7a5ac0; --on-accent:#120826;
+}
+:root[data-theme="6"] {  /* פחם וכתום */
+  --bg:#131314; --bg1:#0f0f10; --bg2:#161617; --card:#1e1e20; --card-2:#26262a;
+  --line:#38383d; --text:#f2f0ee; --muted:#b0abaa; --accent:#f0863a; --accent-2:#c96a26; --on-accent:#1d0e04;
+}
+:root[data-theme="7"] {  /* בהיר נקי */
+  --bg:#f4f7fb; --bg1:#eef3f8; --bg2:#e3ebf3; --card:#ffffff; --card-2:#eef2f7;
+  --line:#d5dee8; --text:#1a2733; --muted:#5f7183; --accent:#2f7be0; --accent-2:#245fb0; --on-accent:#ffffff;
+  --shadow:0 8px 24px rgba(30,50,80,.12);
+}
+:root[data-theme="8"] {  /* בהיר חם */
+  --bg:#faf5ec; --bg1:#f6efe4; --bg2:#efe4d2; --card:#fffdf9; --card-2:#f3ece0;
+  --line:#e0d4c1; --text:#2a2016; --muted:#7a6a55; --accent:#c08a2e; --accent-2:#9c6d1f; --on-accent:#2a1a08;
+  --shadow:0 8px 24px rgba(120,90,40,.14);
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
   font-family: "Segoe UI", "Rubik", Arial, sans-serif;
-  background: linear-gradient(160deg, #0c131b, #101c27 60%, #0c131b);
+  background: linear-gradient(160deg, var(--bg1), var(--bg2) 60%, var(--bg1));
   color: var(--text);
   direction: rtl;
   min-height: 100vh;
@@ -63,11 +98,11 @@ body {
   transition: .15s; user-select: none;
 }
 .day:hover { border-color: var(--accent-2); }
-.day.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.day.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
 .day .dname { font-size: 15px; font-weight: 700; }
 .day .ddate { font-size: 12px; opacity: .8; margin-top: 2px; }
 .day .dfree { font-size: 11px; margin-top: 6px; opacity: .85; }
-.day.active .dfree { color: #3a2c08; }
+.day.active .dfree { color: var(--on-accent); opacity: .75; }
 
 /* שעות */
 .slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; }
@@ -78,7 +113,7 @@ body {
   transition: .12s;
 }
 .slot:hover { border-color: var(--accent); transform: translateY(-1px); }
-.slot.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.slot.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
 .empty-note { color: var(--muted); text-align: center; padding: 20px; }
 
 /* טופס */
@@ -93,7 +128,7 @@ input:focus, select:focus { border-color: var(--accent); }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   width: 100%; padding: 15px; font-size: 17px; font-weight: 700;
-  background: var(--accent); color: #1a1205; border: none;
+  background: var(--accent); color: var(--on-accent); border: none;
   border-radius: 12px; cursor: pointer; transition: .15s; margin-top: 8px;
 }
 .btn:hover { background: var(--accent-2); }
@@ -130,7 +165,7 @@ input:focus, select:focus { border-color: var(--accent); }
   padding: 8px 12px; border-radius: 20px; background: var(--card-2);
   border: 1px solid var(--line); font-size: 13px; cursor: pointer;
 }
-.chip.on { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.chip.on { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
 
 .row2 { display: flex; gap: 10px; }
 .row2 > * { flex: 1; }
@@ -143,7 +178,23 @@ input:focus, select:focus { border-color: var(--accent); }
   flex: 1; padding: 11px; border-radius: 10px; border: 1px solid var(--line);
   background: var(--card-2); color: var(--text); cursor: pointer; font-size: 14px;
 }
-.tab-links button.active { background: var(--accent); color: #1a1205; border-color: var(--accent); font-weight: 700; }
+.tab-links button.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
 
 .hidden { display: none !important; }
 .spinner { text-align: center; padding: 30px; color: var(--muted); }
+
+/* בורר ערכות עיצוב */
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.theme-opt {
+  border: 2px solid var(--line); border-radius: 12px; padding: 8px; cursor: pointer;
+  background: var(--card-2); text-align: center; transition: .15s;
+}
+.theme-opt:hover { border-color: var(--accent-2); }
+.theme-opt.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent) inset; }
+.theme-opt .sw {
+  height: 40px; border-radius: 8px; margin-bottom: 6px;
+  display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,.2);
+}
+.theme-opt .sw .dot { width: 20px; height: 20px; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.theme-opt .nm { font-size: 12px; color: var(--text); }
+.theme-opt.on .nm { font-weight: 700; }
