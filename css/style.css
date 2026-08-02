@@ -1,52 +1,62 @@
 /* דוד הספר – עיצוב משותף */
+/* ברירת מחדל = ערכה 1 (זהב חם כהה — מתאים למספרה) */
 :root {
-  --bg: #0f1720;
-  --bg1: #0c131b;         /* קצה גרדיאנט רקע */
-  --bg2: #101c27;
-  --card: #182430;
-  --card-2: #1f2e3d;
-  --line: #2a3b4d;
-  --text: #eaf1f8;
-  --muted: #9fb2c4;
-  --accent: #d9a441;      /* זהב-ספר */
-  --accent-2: #b8862b;
-  --on-accent: #1a1205;   /* צבע טקסט על רקע accent */
-  --ok: #3fb27f;
-  --danger: #e05a5a;
+  --bg: #14110b;
+  --bg1: #100d08;         /* קצה גרדיאנט רקע */
+  --bg2: #191410;
+  --card: #1e1a12;
+  --card-2: #262018;
+  --line: #3a3122;
+  --text: #f4efe4;
+  --muted: #bcae97;
+  --accent: #e0a63a;      /* זהב חם */
+  --accent-2: #c2851f;
+  --on-accent: #1a1204;   /* צבע טקסט על רקע accent */
+  --ok: #34d399;
+  --danger: #f26d6d;
   --radius: 14px;
-  --shadow: 0 8px 30px rgba(0,0,0,.35);
+  --shadow: 0 10px 34px rgba(0,0,0,.42);
 }
 
-/* ===== 8 ערכות עיצוב (המנהל בוחר בדף ההגדרות) ===== */
-:root[data-theme="2"] {  /* כחול ים */
-  --bg:#0c1826; --bg1:#0a1420; --bg2:#0e1e2e; --card:#132433; --card-2:#193042;
-  --line:#243d52; --text:#e7f2fb; --muted:#9db6cc; --accent:#38b6c9; --accent-2:#2a8fa0; --on-accent:#04191d;
+/* ===== 10 ערכות עיצוב מודרניות (המנהל בוחר בדף ההגדרות) ===== */
+:root[data-theme="2"] {  /* אינדיגו כהה */
+  --bg:#0b0f1a; --bg1:#090c15; --bg2:#0e1322; --card:#141a2b; --card-2:#1b2236;
+  --line:#2a3350; --text:#eef1f8; --muted:#99a4be; --accent:#6366f1; --accent-2:#4f46e5; --on-accent:#ffffff;
 }
-:root[data-theme="3"] {  /* ירוק יער */
-  --bg:#0c1a15; --bg1:#0a1512; --bg2:#0e1f19; --card:#132a22; --card-2:#183527;
-  --line:#254a38; --text:#e8f6ee; --muted:#a0c2b0; --accent:#3fb27f; --accent-2:#2e8a61; --on-accent:#04160e;
+:root[data-theme="3"] {  /* אמרלד */
+  --bg:#0a1411; --bg1:#08110e; --bg2:#0c1a16; --card:#10211b; --card-2:#152a22;
+  --line:#234339; --text:#e9f6f0; --muted:#9bbfb1; --accent:#10b981; --accent-2:#059669; --on-accent:#04150e;
 }
-:root[data-theme="4"] {  /* יין בורדו */
-  --bg:#1e0f13; --bg1:#1a0d10; --bg2:#241016; --card:#2c161c; --card-2:#371c24;
-  --line:#4d2933; --text:#fbeaee; --muted:#c9a4ac; --accent:#e0637a; --accent-2:#b8465c; --on-accent:#2a0810;
+:root[data-theme="4"] {  /* טורקיז */
+  --bg:#08151a; --bg1:#061116; --bg2:#0a1a20; --card:#0e2028; --card-2:#132a33;
+  --line:#1f4652; --text:#e6f5fa; --muted:#96bbc5; --accent:#06b6d4; --accent-2:#0891b2; --on-accent:#03171c;
 }
-:root[data-theme="5"] {  /* סגול מלכותי */
-  --bg:#150e26; --bg1:#120c1e; --bg2:#1a1030; --card:#22193a; --card-2:#2b2047;
-  --line:#3d2f5e; --text:#efe9fb; --muted:#b3a4cc; --accent:#9b7be0; --accent-2:#7a5ac0; --on-accent:#120826;
+:root[data-theme="5"] {  /* סגול */
+  --bg:#120e1c; --bg1:#0e0b16; --bg2:#171022; --card:#1d1730; --card-2:#251d3d;
+  --line:#372b58; --text:#efeafb; --muted:#b2a5ce; --accent:#8b5cf6; --accent-2:#7c3aed; --on-accent:#ffffff;
 }
-:root[data-theme="6"] {  /* פחם וכתום */
-  --bg:#131314; --bg1:#0f0f10; --bg2:#161617; --card:#1e1e20; --card-2:#26262a;
-  --line:#38383d; --text:#f2f0ee; --muted:#b0abaa; --accent:#f0863a; --accent-2:#c96a26; --on-accent:#1d0e04;
+:root[data-theme="6"] {  /* נייבי ואלמוג */
+  --bg:#0b1220; --bg1:#090f1c; --bg2:#0e1728; --card:#121c30; --card-2:#18243d;
+  --line:#263450; --text:#eaf0fa; --muted:#9aabc6; --accent:#fb7245; --accent-2:#e85d2f; --on-accent:#1c0a03;
 }
-:root[data-theme="7"] {  /* בהיר נקי */
-  --bg:#f4f7fb; --bg1:#eef3f8; --bg2:#e3ebf3; --card:#ffffff; --card-2:#eef2f7;
-  --line:#d5dee8; --text:#1a2733; --muted:#5f7183; --accent:#2f7be0; --accent-2:#245fb0; --on-accent:#ffffff;
-  --shadow:0 8px 24px rgba(30,50,80,.12);
+:root[data-theme="7"] {  /* מונוכרום שחור-כסף */
+  --bg:#0d0d0f; --bg1:#0a0a0c; --bg2:#111113; --card:#17171a; --card-2:#1f1f23;
+  --line:#313137; --text:#f4f4f6; --muted:#a1a1aa; --accent:#e4e4e7; --accent-2:#b4b4bb; --on-accent:#0a0a0c;
 }
-:root[data-theme="8"] {  /* בהיר חם */
-  --bg:#faf5ec; --bg1:#f6efe4; --bg2:#efe4d2; --card:#fffdf9; --card-2:#f3ece0;
-  --line:#e0d4c1; --text:#2a2016; --muted:#7a6a55; --accent:#c08a2e; --accent-2:#9c6d1f; --on-accent:#2a1a08;
-  --shadow:0 8px 24px rgba(120,90,40,.14);
+:root[data-theme="8"] {  /* בהיר אינדיגו */
+  --bg:#f7f8fc; --bg1:#eef1f8; --bg2:#e6ebf5; --card:#ffffff; --card-2:#f1f4fa;
+  --line:#dde3ee; --text:#1e2433; --muted:#616b82; --accent:#4f46e5; --accent-2:#4338ca; --on-accent:#ffffff;
+  --shadow:0 10px 30px rgba(30,41,90,.10);
+}
+:root[data-theme="9"] {  /* ספא בז' */
+  --bg:#faf7f2; --bg1:#f4efe6; --bg2:#efe8dc; --card:#fffdf9; --card-2:#f5f0e8;
+  --line:#e6ddce; --text:#33291e; --muted:#877868; --accent:#b08968; --accent-2:#93704e; --on-accent:#2e2318;
+  --shadow:0 10px 30px rgba(120,90,50,.12);
+}
+:root[data-theme="10"] {  /* בלאש ורוד (טיפולי פנים / פאות) */
+  --bg:#fdf3f7; --bg1:#fbe9f0; --bg2:#f8dfe9; --card:#ffffff; --card-2:#fdf1f5;
+  --line:#f4d7e2; --text:#3a2530; --muted:#8f6979; --accent:#ec4899; --accent-2:#db2777; --on-accent:#ffffff;
+  --shadow:0 10px 30px rgba(200,80,140,.12);
 }
 
 * { box-sizing: border-box; }

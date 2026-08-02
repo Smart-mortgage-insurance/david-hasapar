@@ -3,16 +3,18 @@
 (function () {
   'use strict';
 
-  // 8 ערכות — id תואם ל-[data-theme="id"] ב-CSS. bg/accent משמשים לתצוגה מקדימה בכפתור.
+  // 10 ערכות — id תואם ל-[data-theme="id"] ב-CSS. bg/accent משמשים לתצוגה מקדימה בכפתור.
   var THEMES = [
-    { id: '1', name: 'זהב קלאסי',   bg: '#0f1720', accent: '#d9a441' },
-    { id: '2', name: 'כחול ים',     bg: '#0c1826', accent: '#38b6c9' },
-    { id: '3', name: 'ירוק יער',    bg: '#0c1a15', accent: '#3fb27f' },
-    { id: '4', name: 'יין בורדו',   bg: '#1e0f13', accent: '#e0637a' },
-    { id: '5', name: 'סגול מלכותי', bg: '#150e26', accent: '#9b7be0' },
-    { id: '6', name: 'פחם וכתום',   bg: '#131314', accent: '#f0863a' },
-    { id: '7', name: 'בהיר נקי',    bg: '#f4f7fb', accent: '#2f7be0' },
-    { id: '8', name: 'בהיר חם',     bg: '#faf5ec', accent: '#c08a2e' }
+    { id: '1',  name: 'זהב חם',       bg: '#14110b', accent: '#e0a63a' },
+    { id: '2',  name: 'אינדיגו',      bg: '#0b0f1a', accent: '#6366f1' },
+    { id: '3',  name: 'אמרלד',        bg: '#0a1411', accent: '#10b981' },
+    { id: '4',  name: 'טורקיז',       bg: '#08151a', accent: '#06b6d4' },
+    { id: '5',  name: 'סגול',         bg: '#120e1c', accent: '#8b5cf6' },
+    { id: '6',  name: 'נייבי-אלמוג',  bg: '#0b1220', accent: '#fb7245' },
+    { id: '7',  name: 'מונוכרום',     bg: '#0d0d0f', accent: '#e4e4e7' },
+    { id: '8',  name: 'בהיר אינדיגו', bg: '#f7f8fc', accent: '#4f46e5' },
+    { id: '9',  name: 'ספא בז׳',      bg: '#faf7f2', accent: '#b08968' },
+    { id: '10', name: 'ורוד בלאש',    bg: '#fdf3f7', accent: '#ec4899' }
   ];
   var CACHE_KEY = 'davidTheme';
   var DEFAULT = '1';
