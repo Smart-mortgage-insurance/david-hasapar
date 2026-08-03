@@ -1,7 +1,7 @@
 {
-  "name": "ראש שקט – ניהול",
-  "short_name": "ראש שקט",
-  "description": "ניהול תורים לראש שקט",
+  "name": "בראש שקט – ניהול",
+  "short_name": "בראש שקט",
+  "description": "ניהול תורים לבראש שקט",
   "start_url": "admin.html",
   "scope": "./",
   "display": "standalone",
