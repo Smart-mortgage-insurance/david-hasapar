@@ -1,0 +1,17 @@
+{
+  "name": "ראש שקט – ניהול",
+  "short_name": "ראש שקט",
+  "description": "ניהול תורים לראש שקט",
+  "start_url": "admin.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#14110b",
+  "theme_color": "#14110b",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    { "src": "../icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "../apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" }
+  ]
+}
